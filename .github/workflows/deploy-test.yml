@@ -35,7 +35,7 @@ jobs:
       - name: rsync config
         uses: burnett01/rsync-deployments@5.1
         with:
-          switches: -avzr --delete
+          switches: -avzr
           path: conf/
           remote_path: /root
           remote_host: 181.1.65.176
