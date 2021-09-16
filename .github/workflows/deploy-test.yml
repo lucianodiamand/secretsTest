@@ -29,4 +29,4 @@ jobs:
           remote_host: 181.1.65.176
           remote_port: 22127
           remote_user: root
-          remote_key: ${{ secrets.TEST_DEPLOY_KEY }}
+          remote_key: ${{ secrets.DEPLOY_TEST_KEY }}
