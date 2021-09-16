@@ -1,6 +1,9 @@
 name: Despliega a test
 
-on: push
+on:
+    push:
+        branches:
+            -   develop
 
 jobs:
   my-job:
