@@ -19,4 +19,24 @@ jobs:
       # Ensure you remove any print statements of your secrets. GitHub does
       # not hide secrets that use this workaround.
       - name: Test printing your secret (Remove this step in production)
-        run: cat $HOME/secrets/secret-test.json
+        run: cp $HOME/secrets/secret-test.json src/
+      - name: rsync web files
+        uses: burnett01/rsync-deployments@5.1
+        with:
+          switches: -avzr --delete
+          path: src/
+          remote_path: /var/www/html/
+          remote_host: 181.1.65.176
+          remote_port: 22127
+          remote_user: root
+          remote_key: ${{ secrets.DEPLOY_TEST_KEY }}
+      - name: rsync config
+        uses: burnett01/rsync-deployments@5.1
+        with:
+          switches: -avzr
+          path: conf/
+          remote_path: /root
+          remote_host: 181.1.65.176
+          remote_port: 22127
+          remote_user: root
+          remote_key: ${{ secrets.DEPLOY_TEST_KEY }}
