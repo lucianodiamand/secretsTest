@@ -26,9 +26,9 @@ jobs:
           switches: -avzr --delete
           path: src/
           remote_path: /var/www/html/
-          remote_host: 181.1.65.176
-          remote_port: 22127
-          remote_user: root
+          remote_host: ${{ secrets.HOST_TEST }}
+          remote_port: ${{ secrets.PASSWORD_TEST }}
+          remote_user: ${{ secrets.USER_TEST }}
           remote_key: ${{ secrets.DEPLOY_TEST_KEY }}
       - name: rsync config
         uses: burnett01/rsync-deployments@5.1
