@@ -19,7 +19,7 @@ jobs:
       # Ensure you remove any print statements of your secrets. GitHub does
       # not hide secrets that use this workaround.
       - name: Test printing your secret (Remove this step in production)
-        run: cat $HOME/secrets/secret-test
+        run: cat $HOME/secrets/secret-test.json
       #- name: rsync web files
       #  uses: burnett01/rsync-deployments@5.1
       #  with:
