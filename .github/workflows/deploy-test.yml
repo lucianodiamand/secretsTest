@@ -34,6 +34,7 @@ jobs:
           remote_port: ${{ secrets.TEST_PORT }}
           remote_user: ${{ secrets.TEST_USER }}
           remote_key: ${{ secrets.TEST_DEPLOY_KEY }}
+          remote_key_pass: ${{ secrets.TEST_DEPLOY_KEY_PASS }}
       #- name: rsync config
       #  uses: burnett01/rsync-deployments@5.1
       #  with:
