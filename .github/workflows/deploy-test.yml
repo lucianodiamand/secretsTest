@@ -14,7 +14,7 @@ jobs:
       - name: Decrypt large secret
         run: ./.github/scripts/decrypt_test_secret.sh
         env:
-          CLAVE_TEST: ${{ secrets.CLAVE_TEST }}
+          TEST_CLAVE: ${{ secrets.TEST_CLAVE }}
       # This command is just an example to show your secret being printed
       # Ensure you remove any print statements of your secrets. GitHub does
       # not hide secrets that use this workaround.
