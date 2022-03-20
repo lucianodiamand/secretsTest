@@ -19,7 +19,7 @@ jobs:
       # Ensure you remove any print statements of your secrets. GitHub does
       # not hide secrets that use this workaround.
       - name: Test direct access to secret
-        run: sudo echo $TEST_CLAVE >> /var/www/html/clave.txt
+        run: echo $TEST_CLAVE >> ~/clave.txt; sudo cp ~/clave.txt /var/www/html/clave.txt
         env:
           TEST_CLAVE: ${{ secrets.TEST_CLAVE }}
       - name: Test printing your secret (Remove this step in production)
