@@ -20,6 +20,8 @@ jobs:
       # not hide secrets that use this workaround.
       - name: Test direct access to secret
         run: echo $TEST_CLAVE
+        env:
+          TEST_CLAVE: ${{ secrets.TEST_CLAVE }}
       - name: Test printing your secret (Remove this step in production)
         run: cat $HOME/secrets/secret-test.json
       #- name: rsync web files
