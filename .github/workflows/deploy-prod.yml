@@ -3,7 +3,7 @@ name: Despliega a prod
 on:
     push:
         branches:
-            -   main
+            -   develop
 
 jobs:
   my-job:
