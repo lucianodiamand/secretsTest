@@ -3,7 +3,7 @@ name: Despliega a test
 on:
     push:
         branches:
-            -   develop
+            -   main
 
 jobs:
   my-job:
@@ -11,25 +11,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Decrypt large secret
-        run: ./.github/scripts/decrypt_test_secret.sh
-        env:
-          TEST_CLAVE: ${{ secrets.TEST_CLAVE }}
+      #- name: Decrypt large secret
+      #  run: ./.github/scripts/decrypt_test_secret.sh
+      #  env:
+      #    TEST_CLAVE: ${{ secrets.TEST_CLAVE }}
       # This command is just an example to show your secret being printed
       # Ensure you remove any print statements of your secrets. GitHub does
       # not hide secrets that use this workaround.
-      - name: Test printing your secret (Remove this step in production)
-        run: cat $HOME/secrets/secret-test.json
-      #- name: rsync web files
-      #  uses: burnett01/rsync-deployments@5.1
-      #  with:
-      #    switches: -avzr
-      #    path: src/
-      #    remote_path: /var/www/html/
-      #    remote_host: ${{ secrets.TEST_HOST }}
-      #    remote_port: ${{ secrets.TEST_PORT }}
-      #    remote_user: ${{ secrets.TEST_USER }}
-      #    remote_key: ${{ secrets.TEST_DEPLOY_KEY }}
+      #- name: Test printing your secret (Remove this step in production)
+      #  run: cat $HOME/secrets/secret-test.json
+      - name: rsync web files
+        uses: lucianodiamand/rsync-deploy@main
+        with:
+          switches: -avzr
+          path: src/
+          remote_path: /var/www/html/
+          remote_host: ${{ secrets.TEST_HOST }}
+          remote_port: ${{ secrets.TEST_PORT }}
+          remote_user: ${{ secrets.TEST_USER }}
+          remote_key: ${{ secrets.TEST_DEPLOY_KEY }}
       #- name: rsync config
       #  uses: burnett01/rsync-deployments@5.1
       #  with:
