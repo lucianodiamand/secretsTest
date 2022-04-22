@@ -24,7 +24,7 @@ jobs:
         uses: lucianodiamand/rsync-deploy@main
         with:
           switches: -avzr --delete
-          rsh: -G
+          rsh: -q
           path: src/
           remote_path: /var/www/html/
           remote_host: ${{ secrets.TEST_HOST }}
