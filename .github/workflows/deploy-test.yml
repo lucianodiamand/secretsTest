@@ -25,6 +25,7 @@ jobs:
         with:
           switches: -avzr --delete
           rsh: -q
+          owner: www-data
           path: src/
           remote_path: /var/www/html/
           remote_host: ${{ secrets.TEST_HOST }}
@@ -35,6 +36,7 @@ jobs:
         uses: lucianodiamand/rsync-deploy@main
         with:
           switches: -avzr
+          owner: www-data
           path: conf/
           remote_path: /var/www/html2/
           remote_host: ${{ secrets.TEST_HOST }}
